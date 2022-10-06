@@ -17,4 +17,17 @@ const numeroKm = prompt('Scrivi in numero quanti kilometri devi percorrere');
 const etaUtente = prompt('Scrivi in numero la tua età');
 const prezzoAlKm = 0.21 * numeroKm;
 
-console.log(numeroKm, etaUtente, prezzoAlKm)
+console.log(numeroKm, etaUtente, prezzoAlKm);
+
+const sconto20 = prezzoAlKm * 20 / 100;
+const sconto40 = prezzoAlKm * 40 / 100;
+
+console.log(sconto20, sconto40);
+
+if(etaUtente < 18){
+    console.log(prezzoAlKm - sconto20)
+} else if(etaUtente > 65){
+    console.log(prezzoAlKm - sconto40)
+} else{
+    console.log(prezzoAlKm)
+};
