@@ -10,24 +10,27 @@
 // calcolo prezzo in base al km quindi 0.21 x km
 // poi se età utente < 18 allora sconto 20% su prezzo al km, 
     // altrimenti se età utente > 65 allora sconto 40%,
-    // altrimenti rimane prezzo al km (forse non  necessario...)
+    // altrimenti rimane prezzo al km
+// aggiungere questione decimali
 // aggiungere dopo che tutto funziona la verifica inserimento numeri e non lettere
 
-const numeroKm = prompt('Scrivi in numero quanti kilometri devi percorrere');
-const etaUtente = prompt('Scrivi in numero la tua età');
+let numeroKm = prompt('Scrivi in numero quanti kilometri devi percorrere');
+let etaUtente = prompt('Scrivi in numero la tua età');
 const prezzoAlKm = 0.21 * numeroKm;
 
 console.log(numeroKm, etaUtente, prezzoAlKm);
 
 const sconto20 = prezzoAlKm * 20 / 100;
 const sconto40 = prezzoAlKm * 40 / 100;
+let scontoSotto18 = prezzoAlKm - sconto20;
+let scontoSopra65 = prezzoAlKm - sconto40;
 
-console.log(sconto20, sconto40);
+console.log(sconto20, sconto40, scontoSotto18, scontoSopra65);
 
 if(etaUtente < 18){
-    console.log(prezzoAlKm - sconto20)
+    console.log(scontoSotto18.toFixed(2))
 } else if(etaUtente > 65){
-    console.log(prezzoAlKm - sconto40)
+    console.log(scontoSopra65.toFixed(2))
 } else{
-    console.log(prezzoAlKm)
+    console.log(prezzoAlKm.toFixed(2))
 };
