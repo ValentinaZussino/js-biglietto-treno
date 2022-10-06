@@ -23,17 +23,19 @@ console.log(numeroKm, etaUtente, prezzoPerNumKm);
 // verifica valori
 if (isNaN(numeroKm) || isNaN(etaUtente)){
     alert('Inserisci i dati in forma numerica senza spazi per favore. Usa il punto al posto della virgola.');
-} 
-// applicazione sconti o meno + arrotondo
-if(etaUtente < 18){
-    prezzoPerNumKm = prezzoPerNumKm * 0.8;
-} else if(etaUtente > 65){
-    prezzoPerNumKm = prezzoPerNumKm * 0.6;
-} else{
-    prezzoPerNumKm = prezzoPerNumKm;
+} else {
+    // applicazione sconti o meno + arrotondo
+    if(etaUtente < 18){
+        prezzoPerNumKm = prezzoPerNumKm * 0.8;
+    } else if(etaUtente > 65){
+        prezzoPerNumKm = prezzoPerNumKm * 0.6;
+    } else{
+        prezzoPerNumKm = prezzoPerNumKm;
+    }
+    prezzoPerNumKm = prezzoPerNumKm.toFixed(2);
+    // stampo a pagina
+    document.getElementById("km").innerHTML = 'Sono ' + numeroKm + ' i Km che devi percorrere';
+    document.getElementById("prezzoticket").innerHTML = prezzoPerNumKm + ' &euro; &egrave; il costo del tuo biglietto';
 }
-prezzoPerNumKm = prezzoPerNumKm.toFixed(2);
-// stampo a pagina
-document.getElementById("km").innerHTML = 'Sono ' + numeroKm + ' i Km che devi percorrere';
-document.getElementById("prezzoticket").innerHTML = prezzoPerNumKm + ' &euro; &egrave; il costo del tuo biglietto';
+
 
